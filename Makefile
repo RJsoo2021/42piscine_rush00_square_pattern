@@ -10,28 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = rush00
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-RM = rm -rf
 CFILES = ft_std.c ft_errorhandling.c rush00.c rush01.c rush02.c rush03.c rush04.c main.c
 
-OBJS = $(CFILES:.c=.o)
+all: runprogram
 
-$(OBJS): $(CFILES)
-	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "Object file created"
-
-$(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "Executable created"
-
-all: $(NAME)
-
-clean:
-	$(RM) $(OBJS)
-
-fclean: clean
-	$(RM) $(NAME)
-
-re: fclean all
+runprogram: $(CFILES)
+	@echo "Compiling C file..."
+	@$(CC) $(CFLAGS) $(CFILES)
