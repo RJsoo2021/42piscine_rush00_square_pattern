@@ -14,14 +14,18 @@
 # define RUSH00_H
 
 #include <unistd.h>
+#include <stdlib.h>
 
-int     main();
 void    ft_putchar(char c);
-void    rush00(unsigned int x, unsigned int y);
-void    rush01(unsigned int x, unsigned int y);
-void    rush02(unsigned int x, unsigned int y);
-void    rush03(unsigned int x, unsigned int y);
-void    rush04(unsigned int x, unsigned int y);
+void    ft_putstr(char *str);
 int     ft_atoi(const char *str);
+
+int     ft_checkarg(int rushnum, int xcoor, int ycoor);
+
+void    rush00(int x, int y);
+void    rush01(int x, int y);
+void    rush02(int x, int y);
+void    rush03(int x, int y);
+void    rush04(int x, int y);
 
 #endif

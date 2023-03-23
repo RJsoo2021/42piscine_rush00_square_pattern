@@ -14,28 +14,19 @@
 
 int main(int ac, char **av)
 {
-    unsigned int rushnum;
-    unsigned int xcoor;
-    unsigned int ycoor;
-
-    rushnum = (unsigned int)ft_atoi(av[1]);
-    xcoor = (unsigned int)ft_atoi(av[2]);
-    ycoor = (unsigned int)ft_atoi(av[3]);
+    int rushnum;
+    int xcoor;
+    int ycoor;
+    void (*rush[5]) (int, int) = {&rush00, &rush01, &rush02, &rush03, &rush04};
     if (ac == 4)
     {
-        if (rushnum == 0)
-            rush00(xcoor, ycoor);
-        else if (rushnum == 1)
-            rush01(xcoor, ycoor);
-        else if (rushnum == 2)
-            rush02(xcoor, ycoor);
-        else if (rushnum == 3)
-            rush03(xcoor, ycoor);
-        else if (rushnum == 4)
-            rush04(xcoor, ycoor);
-        else
-            write(1, "Please enter a rush number: 0, 1, 2, 3, 4", 42);
-        write(1, "\n", 1);
+        rushnum = ft_atoi(av[1]);
+        xcoor = ft_atoi(av[2]);
+        ycoor = ft_atoi(av[3]);
+        if (ft_checkarg(rushnum, xcoor, ycoor))
+            rush[rushnum](xcoor, ycoor);
     }
+    else 
+        ft_putstr("Argument count error: 3 arguments required");
     return (0);
 }

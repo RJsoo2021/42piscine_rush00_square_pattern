@@ -12,10 +12,10 @@
 
 #include "rush00.h"
 
-void    rush02(unsigned int x, unsigned int y)
+void    rush02(int x, int y)
 {
-    unsigned int l;
-    unsigned int w;
+    int l;
+    int w;
 
     w = 1;
     if (x == 0)
