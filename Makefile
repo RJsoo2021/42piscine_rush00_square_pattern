@@ -10,13 +10,29 @@
 #                                                                              #
 # **************************************************************************** #
 
-
+NAME = solver
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-CFILES = ft_std.c ft_errorhandling.c rush00.c rush01.c rush02.c rush03.c rush04.c main.c
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+SRCS_DIR = srcs/
+SRCS = ft_std.c ft_errorhandling.c rush00.c rush01.c rush02.c rush03.c rush04.c main.c
+SRCS_CFILES = $(addprefix $(SRCS_DIR), $(SRCS))
+OBJS = $(SRCS_CFILES:.c=.o)
 
-all: runprogram
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-runprogram: $(CFILES)
-	@echo "Compiling C file..."
-	@$(CC) $(CFLAGS) $(CFILES)
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	@echo "Compiling all files... Creating output file..."
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+clean:
+	$(RM) $(OBJ)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

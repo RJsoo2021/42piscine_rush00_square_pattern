@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RUSH00_H
-# define RUSH00_H
+#ifndef SQUARE_H
+# define SQUARE_H
 
 #include <unistd.h>
 #include <stdlib.h>

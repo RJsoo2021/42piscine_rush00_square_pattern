@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rush00.h"
+#include "../includes/square.h
 
 int ft_checkarg(int rushnum, int xcoor, int ycoor)
 {
